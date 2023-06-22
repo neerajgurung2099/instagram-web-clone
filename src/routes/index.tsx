@@ -23,18 +23,16 @@ export default Index;
 const Layout = () => {
   return (
     <>
-      <div className="columns-3">
-        <nav className="w-full">
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/explore">Explore</Link>
-            </li>
-          </ul>
+      <div className="flex ">
+        <nav className="flex flex-col basis-1/6 justify-center items-center ">
+          <div className="">
+            <Link to="/"> Home</Link>
+          </div>
+          <div className="">
+            <Link to="/explore">Explore</Link>
+          </div>
         </nav>
-        <div className="w-full">
+        <div className="flex basis-4/6 justify-center">
           <Outlet />
         </div>
       </div>
