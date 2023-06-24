@@ -1,9 +1,8 @@
-import React from "react";
-import { Routes, Route, Link, Outlet } from "react-router-dom";
-import HomePage from "../pages/HomePage";
+import { Outlet, Route, Routes } from "react-router-dom";
+import NavItem from "../components/NavItem";
 import Explore from "../pages/Explore";
+import HomePage from "../pages/HomePage";
 import NoMatch from "../pages/NoMatch";
-
 const Index = () => {
   return (
     <>
@@ -23,14 +22,9 @@ export default Index;
 const Layout = () => {
   return (
     <>
-      <div className="flex ">
-        <nav className="flex flex-col basis-1/6 justify-center items-center ">
-          <div className="">
-            <Link to="/"> Home</Link>
-          </div>
-          <div className="">
-            <Link to="/explore">Explore</Link>
-          </div>
+      <div className="flex">
+        <nav className="flex flex-col basis-1/6  justify-center pl-5">
+          <NavItem path="/" icon="AiFillHome" library="ai" />
         </nav>
         <div className="flex basis-4/6 justify-center">
           <Outlet />
