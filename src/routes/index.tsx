@@ -15,7 +15,6 @@ import Stories from "../pages/Stories";
 const Index = () => {
   return (
     <>
-      <div className="h-1 "></div>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />}></Route>
@@ -112,7 +111,7 @@ const Layout = () => {
             </NavItem>
           </div>
         </div>
-        <div className="flex basis-5/6 justify-center border-r border-solid border-gray-300">
+        <div className="flex basis-5/6">
           <Outlet />
         </div>
       </div>
