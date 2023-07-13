@@ -1,16 +1,16 @@
-import { Outlet, Route, Routes } from "react-router-dom";
+import { AiFillHome, AiOutlineHeart } from "react-icons/ai";
+import { BiCircle } from "react-icons/bi";
+import { BsCameraReels, BsMessenger, BsPlusSquare } from "react-icons/bs";
+import { MdOutlineExplore } from "react-icons/md";
+import { RxHamburgerMenu } from "react-icons/rx";
+import { Link, Outlet, Route, Routes } from "react-router-dom";
 import NavItem from "../components/NavItem";
 import Explore from "../pages/Explore";
 import HomePage from "../pages/HomePage";
+import Messages from "../pages/Messages";
 import NoMatch from "../pages/NoMatch";
-import { RxHamburgerMenu } from "react-icons/rx";
-import { AiFillHome } from "react-icons/ai";
-import { MdOutlineExplore } from "react-icons/md";
-import { BsCameraReels } from "react-icons/bs";
-import { BiCircle } from "react-icons/bi";
-import { BsPlusSquare } from "react-icons/bs";
-import { AiOutlineHeart } from "react-icons/ai";
-import { BsMessenger } from "react-icons/bs";
+import Profile from "../pages/Profile";
+import Reels from "../pages/Reels";
 const Index = () => {
   return (
     <>
@@ -18,6 +18,9 @@ const Index = () => {
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />}></Route>
           <Route path="/explore" element={<Explore />}></Route>
+          <Route path="/reels" element={<Reels />}></Route>
+          <Route path="/messages" element={<Messages />}></Route>
+          <Route path="/profile" element={<Profile />}></Route>
           <Route path="*" element={<NoMatch />}></Route>
         </Route>
       </Routes>
@@ -37,45 +40,45 @@ const navItems: NavItemType[] = [
   {
     name: "Home",
     path: "/",
-    icon: <AiFillHome className="inline-block mr-3" size="25px" />,
+    icon: <AiFillHome className="inline-block mr-3" size="22px" />,
   },
   {
     name: "Explore",
     path: "/explore",
-    icon: <MdOutlineExplore className="inline-block mr-3" size="25px" />,
+    icon: <MdOutlineExplore className="inline-block mr-3" size="22px" />,
   },
   {
     name: "Reels",
     path: "/reels",
-    icon: <BsCameraReels className="inline-block mr-3" size="25px" />,
+    icon: <BsCameraReels className="inline-block mr-3" size="22px" />,
   },
   {
     name: "Messages",
     path: "/messages",
-    icon: <BsMessenger className="inline-block mr-3" size="25px" />,
+    icon: <BsMessenger className="inline-block mr-3" size="22px" />,
   },
   {
     name: "Notifications",
     path: "/notifications",
-    icon: <AiOutlineHeart className="inline-block mr-3" size="25px" />,
+    icon: <AiOutlineHeart className="inline-block mr-3" size="22px" />,
   },
   {
     name: "Create",
     path: "/create",
-    icon: <BsPlusSquare className="inline-block mr-3" size="25px" />,
+    icon: <BsPlusSquare className="inline-block mr-3" size="22px" />,
   },
   {
     name: "Profile",
     path: "/profile",
-    icon: <BiCircle className="inline-block mr-3" size="25px" />,
+    icon: <BiCircle className="inline-block mr-3" size="22px" />,
   },
 ];
 const Layout = () => {
   return (
     <>
-      <div className="flex">
-        <div className="flex flex-col basis-1/4 justify-center pl-6 border-r-2 border-solid border-gray-200">
-          <div className="p-2 m-3">
+      <div className="flex h-full">
+        <div className="flex flex-col basis-1/6  pl-6 border-r border-solid border-gray-300">
+          <Link to={"/"} className="p-2 mx-1 my-4 hover:cursor-pointer">
             <svg
               aria-label="Instagram"
               color="rgb(0, 0, 0)"
@@ -92,21 +95,21 @@ const Layout = () => {
                 fill-rule="evenodd"
               ></path>
             </svg>
-          </div>
-          <nav>
+          </Link>
+          <nav className="flex flex-col grow">
             {navItems.map((elem) => (
               <NavItem key={elem.path} name={elem.name} path={elem.path}>
                 {elem.icon}
               </NavItem>
             ))}
           </nav>
-          <div className="flex align-center hover:bg-gray-200">
+          <div className="flex align-center hover:bg-gray-200 rounded-lg mb-5 mx-1  ">
             <NavItem name="More" path="#">
-              <RxHamburgerMenu className="inline-block mr-3" size="25px" />
+              <RxHamburgerMenu className="inline-block mr-3" size="22px" />
             </NavItem>
           </div>
         </div>
-        <div className="flex basis-2/4 justify-center">
+        <div className="flex basis-5/6 justify-center border-r border-solid border-gray-300">
           <Outlet />
         </div>
       </div>

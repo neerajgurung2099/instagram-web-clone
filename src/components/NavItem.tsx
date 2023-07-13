@@ -10,7 +10,7 @@ const NavItem: React.FC<Props> = (props) => {
   return (
     <Link
       to={props.path}
-      className="flex items-center m-3 hover:bg-gray-200 p-2 rounded-lg "
+      className="flex items-center m-1 hover:bg-gray-200 p-2 rounded-lg "
     >
       {props.children}
       <span className="text-lg">{props.name}</span>
