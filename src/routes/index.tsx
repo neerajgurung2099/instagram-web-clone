@@ -11,9 +11,11 @@ import Messages from "../pages/Messages";
 import NoMatch from "../pages/NoMatch";
 import Profile from "../pages/Profile";
 import Reels from "../pages/Reels";
+import Stories from "../pages/Stories";
 const Index = () => {
   return (
     <>
+      <div className="h-1 "></div>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />}></Route>
@@ -23,6 +25,7 @@ const Index = () => {
           <Route path="/profile" element={<Profile />}></Route>
           <Route path="*" element={<NoMatch />}></Route>
         </Route>
+        <Route path="/stories" element={<Stories />} />
       </Routes>
     </>
   );
